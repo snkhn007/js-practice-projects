@@ -1,0 +1,44 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Color the Boxes | JS Practice</title>
+    <style>
+        .box{
+            border: solid rgb(21, 21, 21) 2px;
+            margin: 20px;
+            padding: 40px;
+            height: 30px;
+            width: 30px;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+        <div class="box">BOX</div>
+    </div>
+
+    <script>
+        function getRandomColor(){
+            let a = Math.floor(Math.random() * 255);
+            let b = Math.floor(Math.random() * 255);
+            let c = Math.floor(Math.random() * 255);
+            return `rgb(${a}, ${b}, ${c})`;
+        }
+        let cont = document.getElementsByClassName("box");
+        // cont[1].style.backgroundColor = getrandomColor();
+        for(let i = 0; i<cont.length; i++){
+            cont[i].style.backgroundColor = getRandomColor();
+            cont[i].style.color = getRandomColor();
+
+        }
+
+    </script>
+    
+</body>
+</html>
