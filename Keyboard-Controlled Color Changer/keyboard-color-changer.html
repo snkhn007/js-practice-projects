@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <!-- You press a key → the background color changes.
+
+    R → Red
+    G → Green
+    B → Blue
+    Y → Yellow
+    W → White (reset) -->
+    <style>
+        body{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+        }
+         .txt{
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+         }
+        .box{
+            height: 70px;
+            width: 70px;
+            border: 2px solid black;
+            margin: 20px;
+            padding: 20px;
+            text-align: center;
+            transition: background-color 0.4s ease, transform 0.2s ease;            
+        }
+        /* #msg {
+            transition: transform 0.15s ease;
+        } */
+    </style>
+</head>
+<body>
+    <div class="txt">
+        <h2>Keyboard Color Changer</h2>
+        <p id="msg">Press: R, G, B, Y, W</p>
+    </div> 
+    <div class="container">
+        <div class="box"></div>
+    </div>
+    <script>
+        const b = document.querySelector(".box");
+        const m = document.getElementById("msg");
+        const pair ={
+            "r" : "red",
+            "g" : "green",
+            "b" : "blue",
+            "y" : "yellow",
+            "w" : "white"
+        };
+
+        function pop(ele, scale = 1.08){
+            ele.style.transform = `scale(${scale})`;
+            setTimeout(()=>{
+                ele.style.transform = "scale(1)"
+            }, 120 );
+        }
+
+        document.addEventListener("keydown", (e)=>{
+            const k = e.key.toLowerCase();
+
+            if(pair[k]){
+                b.style.backgroundColor = pair[k];
+                m.textContent = `You Pressed ${k.toUpperCase()} ` ;
+                pop(b, 1.08);
+            }
+            else if(k.length === 1){
+                m.textContent = "Invalid key! Use R, G, B, Y, or W." ;
+
+                pop(b, 1.08);
+                // pop(m, 1.04);
+            }
+        })
+    </script>
+    
+</body>
+</html>
