@@ -1,0 +1,50 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <script src="index.js" defer></script>
+    <style>
+        *{
+            margin: 0;
+            padding: 0;
+        }
+        .head{
+            margin: 20px;
+        }
+        .content{
+            /* width: 600px; */
+            display: flex;
+            flex-direction: column;
+            margin: 20px;
+        }
+        .form{
+            margin-top: 10px;
+            margin-bottom: 10px;
+        }
+    </style>
+</head>
+<body>
+    <div class="head">
+        <h2>Number guessing game</h2>
+    </div>
+    <div class="content">
+        <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
+        <div class="form">
+            <form action="">
+            <div class="entry">
+                <label for="number">Enter a guess: </label>
+                <input type="text" id="number">
+                <!-- <button class="target">Submit guess</button> -->
+                <button type="button" class="target">Submit guess</button>
+                </div>
+            </form>
+        </div>
+        <!-- target position -->
+    </div>
+</body>
+</html>
+<!-- 
+take input, store it, use if else to give result, most importantly, if we guess correct, this button converts to start again wala button
+-->
