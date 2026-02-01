@@ -35,10 +35,12 @@ Create a simple "guess the number" type game. It should choose a random number b
     <div class="content">
         <p>We have selected a random number between 1 and 100. See if you can guess it in 10 turns or fewer. We'll tell you if your guess was too high or too low.</p>
         <div class="form">
-            <form action="">
+            <form action="" name="myForm" method="post">
             <div class="entry">
                 <label for="number">Enter a guess: </label>
-                <input type="text" id="number">
+                <!-- <input type="text" id="number" name="number" > -->
+                <input type="number" id="number" name="number">
+
                 <!-- <button class="target">Submit guess</button> -->
                 <button type="button" class="target">Submit guess</button>
                 </div>
@@ -48,6 +50,3 @@ Create a simple "guess the number" type game. It should choose a random number b
     </div>
 </body>
 </html>
-<!-- 
-take input, store it, use if else to give result, most importantly, if we guess correct, this button converts to start again wala button
--->
