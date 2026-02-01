@@ -1,0 +1,122 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>JavaScript Form Validation</title>
+    <style>
+        h1{
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+        }
+        body{
+            padding: 20px;
+        }
+        form{
+            display: flex;
+            flex-direction: column;
+            /* align-items: center; */
+            /* flex-direction: row */
+        }
+        form input{
+            width: 50%;
+            padding: 12px 20px;
+            margin: 10px;
+            border: solid black 1px;
+            border-radius: 5px;
+            font-size: 15px;
+        }
+        .formError{
+            /* display: none; */
+            color: rgb(181, 16, 16);
+        }
+        #btn{
+            /* margin: 5px; */
+            /* padding: 10 px; */
+            /* background-color: aqua; */
+            box-shadow: 2px 2px 2px rgb(73, 58, 58);
+            font-size: 15px;
+            width: 100px;
+            cursor: pointer;
+        }
+    </style>
+</head>
+<body>
+    <h1>Welcome to This Form</h1>
+    <form action="/myaction.php" name="myForm" onsubmit="return validateForm()" method="post">
+        <div class="form-group" id="name">
+            <label for="fname">Name: </label>
+            <input type="text" id="fname" placeholder="Enter name" required>
+            <span class="formError"></span>
+        </div>
+        <!-- <div class="form-group" id="mail">
+            <label for="fmail">Email: </label>
+            <input type="text" id="fmail" placeholder="Enter email">
+            <span class="formError"></span>
+        </div> -->
+        <div class="form-group" id="contact">
+            <label for="fphone">Contact Number: </label>
+            <input type="text" id="fphone" placeholder="Enter contact number" required>
+            <span class="formError"></span>
+        </div>
+        <div class="form-group" id="ps">
+            <label for="fps">Password: </label>
+            <input type="text" id="fps" placeholder="Enter password" required>
+            <span class="formError"></span>
+        </div>
+        <div class="form-group" id="cps">
+            <label for="fcps">Confirm Password: </label>
+            <input type="text" id="fcps" placeholder="Renter password" required>
+            <span class="formError"></span>
+        </div>
+        <div class="form-group" id="b">
+            <input type="submit" id="btn" value="Submit">
+        </div>
+    </form>
+    <script>
+        function clearError(){
+            let errors = document.getElementsByClassName('formError');
+            for( let item of errors){
+                item.innerHTML = "";
+            }
+
+        }
+        function setError(id , error){
+            let el = document.getElementById(id);
+            let errorSpan = el.querySelector(".formError").innerHTML = error;
+        }
+
+        function validateForm(){
+            clearError();
+            var returnVal = true; // that is let the form submit initially
+
+            // performing validation
+            var name = document.forms['myForm']['fname'].value;
+            var num = document.forms['myForm']['fphone'].value;
+            var pass = document.forms['myForm']['fps'].value;
+            var cpass = document.forms['myForm']['fcps'].value;
+            // console.log(name);
+            if(name.length < 5){
+                setError("name", "*Length of name is too short");
+                returnVal = false;
+            }
+            if(num.length != 10){
+                setError("contact", "*Length of error should be ten");
+                returnVal = false;
+            }
+            if(pass.length < 8){
+                setError("ps", "*must be 8 or more than 8 character long");
+                returnVal = false;
+            }
+            if(pass != cpass){
+                setError("cps", "*both passwords are not similar")
+                returnVal = false;
+            }
+
+
+            return returnVal; // if true then form iwll submit
+        }
+
+    </script>
+
+</body>
+</html>
