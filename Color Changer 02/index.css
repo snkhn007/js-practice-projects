@@ -1,0 +1,26 @@
+h1{
+    color: rgb(33, 26, 26);
+    font-family: 'Lucida Sans', 'Lucida Sans Regular', 'Lucida Grande', 'Lucida Sans Unicode', Geneva, Verdana, sans-serif;
+}
+.container{
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    min-height: 100vh;
+}
+.parent{
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-around;
+    align-items: center;
+}
+button{
+    margin: 10px;
+    padding: 50px;
+    border: solid black 2px;
+    border-radius: 4px;
+    box-shadow: 2px 2px 2px black;
+    /* width: 70px; */
+    cursor: pointer;
+}
