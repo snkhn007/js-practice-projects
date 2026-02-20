@@ -1,0 +1,23 @@
+body{
+    background-color: black;
+    min-height: 100vh;
+}
+.circle{
+    width: 30px;
+    height: 30px;
+    /* background-color: rgb(203, 203, 165); */
+    border-radius: 50%;
+    position: absolute; /*because we know distance from left anf top*/
+    transform: translate(-50%, -50%);
+    animation: grow 5s forwards;
+}
+@keyframes grow{
+    0%{
+        transform: scale(1);
+        opacity: 1;
+    }
+    100%{
+        transform: scale(3);
+        opacity: 0;
+    }
+}

@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.11.3/font/bootstrap-icons.min.css">
+
+    <style>
+        body{
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            background: linear-gradient(180deg, rgb(251, 179, 191), rgb(250, 226, 230));
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            color: white;
+        }
+        .card{
+            border: solid 2px black;
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            /* justify-content: center; */
+            width: 100%;
+            max-width: 420px;
+            background-color: white;
+            max-height: 80vh;
+            overflow-y: auto;
+            flex-shrink: 0;
+        }
+        .heading{
+            font-size: 35px;
+            background-color: rgb(255, 127, 81);
+            width: 100%;
+            display: flex;
+            justify-content: space-between;
+            align-items: center;
+            color: white;
+            /* margin-bottom: 10px; */
+        }
+        i{
+            margin: 8px;
+        }
+        .field{
+            margin: 20px;
+        }
+        .smallCard{
+            /* margin-left: 10px;
+            margin-right: 10px; */
+            margin: 10px;
+            width: 80%;
+            background-color: rgb(65, 167, 167);
+        }
+        #myForm{
+            display: flex;
+            flex-direction: row;
+        }
+        .res{
+            background-color: rgb(255, 163, 177);
+            width: 80%;
+            margin: 5px;
+            padding: 10px;
+            box-sizing: border-box;
+        }
+        .task{
+            display: flex;
+            flex-direction: row;
+            align-items: center;
+            /* width: 100%; */
+            justify-content: space-between;
+            height: 40px;
+        }
+        .left{
+            color: white;
+        }
+        #addBtn{
+            /* width: 100px;  */
+            background-color: rgb(255, 127, 81); 
+            color: white;
+            border: solid 2px rgb(255, 127, 81);
+            height: 100%;     
+            box-shadow: 2px 2px 4px rgb(154, 81, 55); 
+            border-radius: 2px;    
+            cursor: pointer;
+        }
+        .done, .del{
+            color: white;
+            height: 80%;     
+            border-radius: 50%;    
+            cursor: pointer;
+        }
+        .done::before {
+            content: "✔ "; /* Unicode check mark */
+        }
+        .del::before {
+            content: "✖ ";
+        }
+        .done{
+            background-color: rgb(85 173 85); 
+            border: solid 2px rgb(85 173 85);
+            box-shadow: 2px 2px 4px rgb(85 173 85); 
+            margin: 2px;
+        }
+        .del{
+            background-color: rgb(169 48 48); 
+            border: solid 2px rgb(169 48 48);
+            box-shadow: 2px 2px 4px rgb(169 48 48); 
+            margin: 2px;
+        }
+        .right{
+            height: 100%;
+        }
+
+        .addBtn, .done, .del {
+            transition: transform 0.2s ease, box-shadow 0.2s ease; /* smooth animation */
+        }
+
+        .addBtn:hover, .done:hover, .del:hover {
+            transform: scale(1.1); /* makes the button 10% bigger */
+            box-shadow: 4px 4px 8px rgba(0,0,0,0.3); /* pop-out shadow */
+        }
+
+    </style>
+</head>
+<body>
+    <div class="card">
+        <div class="heading">
+            <i class="bi bi-three-dots"></i>
+            TO DO
+            <i class="bi bi-plus"></i>
+        </div>
+        <div class="form smallCard">
+            <form action="" id="myForm">
+                <div class="field">
+                    <label>
+                        Enter Task: 
+                        <input type="text" name="task" id="">
+                    </label>
+                </div>
+                <div class="field">
+                    <button id="addBtn">ADD</button>
+                </div>
+            </form>
+        </div>
+        <div class="res"></div>
+
+
+    </div>
+
+       
+
+
+</body>
+<script>
+    let form = document.querySelector("#myForm");
+    let target = document.querySelector(".res");
+    form.addEventListener("submit", (e)=>{
+        e.preventDefault();
+        let t = e.currentTarget.task.value.trim();
+
+        let app = document.createElement('div');
+        app.classList.add("task");
+
+        app.innerHTML =`<div class="left"><p>${t}</p></div>
+    <div class="right">
+         <button class="done"></button>
+        <button class="del"></button>
+    </div>`;
+        target.appendChild(app);
+
+        form.reset();
+    })
+
+    target.addEventListener("click", (e) => {
+    if (e.target.classList.contains("done")) {
+        const taskDiv = e.target.closest(".task");
+        taskDiv.style.textDecoration = "line-through"; // mark as done
+    }
+
+    if (e.target.classList.contains("del")) {
+        const taskDiv = e.target.closest(".task");
+        taskDiv.remove(); // delete task
+    }
+})
+</script>
+</html>

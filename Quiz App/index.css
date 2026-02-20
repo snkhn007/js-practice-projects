@@ -1,0 +1,49 @@
+body{
+    min-height: 100vh;
+    background-color: rgb(214, 208, 209);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-family: Arial, Helvetica, sans-serif;
+}
+.quizForm{
+    background-color: rgb(255, 255, 255);
+    /* border: 2px solid black; */
+    max-width: 500px;
+    box-shadow: 2px 2px 3px black;
+}
+h2{
+    font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+    /* background-color: pink; */
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+    /* align-items: center; */
+}
+.field{
+    /* background-color: blue; */
+    margin: 20px;
+}
+.btn{
+    /* background-color: yellow; */
+    margin-bottom: 20px;
+    margin-left: 20px;
+    margin-right: 20px;
+    display: flex;
+    justify-content: center;
+}
+button{
+    height: 30px;
+    border-radius: 5px;
+}
+.result{
+    display: flex;
+    justify-content: center;
+    background-color: rgb(220, 220, 218);
+    margin-left: 10px;
+    margin-right: 10px;
+    margin-bottom: 10px;
+    height: 40px;
+    align-items: center;
+}
