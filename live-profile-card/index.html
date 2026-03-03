@@ -1,0 +1,85 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.0/css/all.min.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="utils.css">
+    <link rel="stylesheet" href="card.css">
+    <link rel="stylesheet" href="form.css">
+    <script src="index.js" defer></script>
+</head>
+<body>
+    <div class="container">
+        <div class="card" id="in-card">
+            <h2>Edit Personal Details</h2>
+            
+            <form action="" method="POST" id="myForm">
+                <div class="fields">
+                    <label>
+                        Profile Photo
+                        <br>
+                        <input type="file" id="photo" accept="image/*">
+                    </label>
+                </div>
+                <div class="fields">
+                    <label>
+                        Full Name
+                        <br><input type="text" name="fname" id="fname" placeholder="Enter your first- and last name">
+                    </label>
+                </div>
+                <div class="fields">
+                    <label>
+                        Professional title
+                        <br><input type="text" name="role" id="role" placeholder="Target position or current role">
+                    </label>
+                </div>
+                <div class="fields">
+                    <label for="bio">Bio:</label>
+                    <br><input name="bio" id="bio" rows="3" placeholder="Add Details"></input>
+                </div>
+                <div class="fields">
+                    <label>
+                        Email
+                        <br><input type="email" name="email" id="email" placeholder="Enter email">
+                    </label>
+                </div>
+                <div class="fields">
+                    <label>
+                        Phone
+                        <br><input type="text" name="number" id="number" placeholder="Enter Phone">
+                    </label>
+                </div>
+            </form>
+        </div>
+        <div class="card" id="out-card">
+            <div class="image">
+                <img id="previewImg" src="" alt="">
+            </div>
+            <div class="details">
+                <div class="Fname fout">
+                </div>
+                <div class="Role fout">
+                </div>
+                <div class="Bio fout">
+                </div>
+                    
+                <div class="contact fout">
+                    <div class="left">
+                        <p id="imail"><i class="fa-solid fa-envelope"></i></p> 
+                        <div class="Email">
+                        </div>
+                    </div>
+                    <div class="right">
+                        <p id="iNumber"><i class="fa-solid fa-phone"></i> </p>
+                        <div class="Number">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    
+</body>
+</html>
